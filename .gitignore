@@ -1,0 +1,6 @@
+out/
+.ideabuild/
+build/
+.gradle/
+.idea/
+gradle/gradle/
