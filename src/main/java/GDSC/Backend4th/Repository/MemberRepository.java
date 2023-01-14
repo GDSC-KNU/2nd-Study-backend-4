@@ -39,12 +39,11 @@ public class MemberRepository {
      *
      * @param userId
      * UserId로 멤버 찾기
-     * NUll 값 반환 Optional 사가
      * @return
      */
-    public Optional<Member> findByUserId(String userId){
-        return findAll().stream()
-                .filter(m -> m.getUserId().equals(userId))
-                .findFirst();
+    public List<Member> findByUserId(String userId){
+        return em.createQuery("select m from Member As m where m.userId = :userId", Member.class)
+                .setParameter("userId", userId)
+                .getResultList();
     }
 }
