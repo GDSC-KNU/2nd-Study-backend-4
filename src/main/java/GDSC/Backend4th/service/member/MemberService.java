@@ -39,4 +39,17 @@ public class MemberService {
         System.out.println("사용불가능");
         return false;
     }
+
+    public Member authentication(String userId, String pw){
+        List<Member> member = memberRepository.findByUserId(userId);
+        if(member.isEmpty()){
+            return null;
+        }
+        if(member.get(0).getPw().equals(pw)){
+            return member.get(0);
+        }
+        return null;
+    }
+
+
 }

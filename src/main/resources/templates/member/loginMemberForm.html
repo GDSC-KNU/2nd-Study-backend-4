@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>로그인</title>
+</head>
+<body>
+<form action="" th:action th:object="${member}" method="post">
+  <div>
+  <input type="text" placeholder="아이디" th:field="${member.userId}" name="userId" required
+  oninvalid="this.setCustomValidity('아이디를 입력하세요.')"
+  oninput="this.setCustomValidity('')">
+  </div>
+  <div>
+  <input type="password" placeholder="비밀번호" th:field="${member.pw}" name="pw" required
+  oninvalid="this.setCustomValidity('비밀번호를 입력하세요.')"
+  oninput="this.setCustomValidity('')">
+  </div>
+  <div>
+    계정이 없으신가요 ?
+  </div>
+  <div><a th:href="@{/join}">회원가입</a>하러가기
+  </div>
+  <button type="submit" class="user-btn">로그인</button>
+</form>
+</body>
+</html>
