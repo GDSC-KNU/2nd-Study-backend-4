@@ -21,6 +21,7 @@ public class CalanderService {
 
 
 
+    @Transactional
     public void make_calander(Member member) {
         Calander findCalander = member.getCalander();
 
@@ -35,6 +36,7 @@ public class CalanderService {
         save_day(member,daylander);
     }
 
+    @Transactional
     public void save_day(Member member,Daylander daylander) {
 
         Calander calander = member.getCalander();
@@ -49,6 +51,7 @@ public class CalanderService {
 //        daylanderRepository.delete(findDay);
 //    }
 
+    @Transactional
     public void edit_day(Member member,Daylander curr,Daylander next) {
         Calander findCalander = member.getCalander();
         Daylander currDay = daylanderRepository.findByCalanderAndId(findCalander,curr.getId());

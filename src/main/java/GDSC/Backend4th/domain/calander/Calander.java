@@ -31,9 +31,6 @@ public class Calander {
     private List<Daylander> daylanderList=new ArrayList<>();
 
 
-    public Calander(List<Daylander> daylanderList) {
-        this.daylanderList=daylanderList;
-    }
 
 
 }
