@@ -23,12 +23,18 @@ public class CalanderService {
 
     @Transactional
     public void make_calander(Member member) {
+
         Calander findCalander = member.getCalander();
 
         if(findCalander==null) {
 
-            Calander calander=new Calander();
+            Calander calander=new Calander(member);
+            member.setCalander(calander);
             calanderRepository.save(calander);
+
+            Daylander daylander=new Daylander(1,21,2023,"시발", LocalDateTime.now());
+            register_day(member,daylander);
+
         }
     }
     public void register_day(Member member,Daylander daylander) {
@@ -40,9 +46,12 @@ public class CalanderService {
     public void save_day(Member member,Daylander daylander) {
 
         Calander calander = member.getCalander();
+        System.out.println(calander.getMember().getUserId());
         List<Daylander> daylanderList = calander.getDaylanderList();
         daylanderList.add(daylander);
         daylander.setCalander(calander);
+
+        member.setCalander(calander);
         daylanderRepository.save(daylander);
     }
 

@@ -20,6 +20,8 @@ import java.util.List;
 public class MemberService {
     private final MemberRepository memberRepository;
 
+    private final CalanderService calanderService;
+
 
 
     @Transactional
@@ -27,6 +29,8 @@ public class MemberService {
         Member member = memberDto.toEntity();
         validateDuplicateMember(member);
         memberRepository.save(member);
+        calanderService.make_calander(member);
+
         return member.getId();
     }
 

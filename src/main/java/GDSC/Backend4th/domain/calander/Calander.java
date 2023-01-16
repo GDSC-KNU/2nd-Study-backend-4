@@ -23,14 +23,15 @@ public class Calander {
     @Column(name="CALANDER_ID")
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="MEMBER_ID")
     private Member member;
 
-    @OneToMany(mappedBy = "calander",cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Daylander> daylanderList=new ArrayList<>();
 
 
-
-
+    public Calander(Member member) {
+        this.member = member;
+    }
 }
