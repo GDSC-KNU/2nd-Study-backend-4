@@ -41,4 +41,11 @@ public class Daylander {
         this.localDateTime=localDateTime;
     }
 
+    public void edit_currDay(Integer Month,Integer Day,Integer Year,String Description,LocalDateTime localDateTime) {
+        this.Month=Month;
+        this.Day=Day;
+        this.Year=Year;
+        this.description=Description;
+        this.localDateTime=localDateTime;
+    }
 }

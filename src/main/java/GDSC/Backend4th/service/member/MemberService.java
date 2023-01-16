@@ -19,18 +19,13 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MemberService {
     private final MemberRepository memberRepository;
-    private final CalanderRepository calanderRepository;
-    private final CalanderService calanderService;
+
 
 
     @Transactional
     public Long join(MemberDto memberDto){
         Member member = memberDto.toEntity();
         validateDuplicateMember(member);
-
-        List<Daylander> daylanderList=new ArrayList<>();
-        Calander calander = new Calander(daylanderList);
-        member.setCalander(calander);
         memberRepository.save(member);
         return member.getId();
     }
