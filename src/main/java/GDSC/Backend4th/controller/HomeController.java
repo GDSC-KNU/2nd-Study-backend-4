@@ -22,4 +22,9 @@ public class HomeController {
         model.addAttribute("memberDto", loginMember);
         return "home";
     }
+
+    @GetMapping("/main")
+    public String calander(){
+        return "calander";
+    }
 }
