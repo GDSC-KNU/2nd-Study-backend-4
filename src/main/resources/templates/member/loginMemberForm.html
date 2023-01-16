@@ -5,14 +5,14 @@
   <title>로그인</title>
 </head>
 <body>
-<form action="" th:action th:object="${member}" method="post">
+<form action="" th:action="@{/login}" th:object="${memberDto}" method="post">
   <div>
-  <input type="text" placeholder="아이디" th:field="${member.userId}" name="userId" required
+  <input type="text" placeholder="아이디" th:field="${memberDto.userId}" name="userId" required
   oninvalid="this.setCustomValidity('아이디를 입력하세요.')"
   oninput="this.setCustomValidity('')">
   </div>
   <div>
-  <input type="password" placeholder="비밀번호" th:field="${member.pw}" name="pw" required
+  <input type="password" placeholder="비밀번호" th:field="${memberDto.pw}" name="pw" required
   oninvalid="this.setCustomValidity('비밀번호를 입력하세요.')"
   oninput="this.setCustomValidity('')">
   </div>

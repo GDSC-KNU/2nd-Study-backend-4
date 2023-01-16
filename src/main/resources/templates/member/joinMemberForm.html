@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="container">
-    <form action = "" th:action="@{/join}" th:object="${member}" method="post">
+    <form action = "" th:action="@{/join}" th:object="${memberDto}" method="post">
         <div th:if="${#fields.hasGlobalErrors()}">
             <p class="field-error" th:each="err : ${#fields.globalErrors()}" th:text="${err}">전체 오류 메시지</p>
         </div>

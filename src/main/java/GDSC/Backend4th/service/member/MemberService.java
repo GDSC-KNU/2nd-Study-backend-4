@@ -2,6 +2,7 @@ package GDSC.Backend4th.service.member;
 
 import GDSC.Backend4th.Repository.MemberRepository;
 import GDSC.Backend4th.domain.member.Member;
+import GDSC.Backend4th.dto.MemberDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,7 +17,8 @@ public class MemberService {
     private final MemberRepository memberRepository;
 
     @Transactional
-    public Long join(Member member){
+    public Long join(MemberDto memberDto){
+        Member member = memberDto.toEntity();
         validateDuplicateMember(member);
         memberRepository.save(member);
         return member.getId();

@@ -10,8 +10,8 @@ import lombok.*;
 
 
 @Entity
-@Getter
 @Setter
+@Getter
 @NoArgsConstructor
 public class Member {
 
@@ -20,11 +20,20 @@ public class Member {
     @Column(name = "MEMBER_ID")
     private Long id;
 
-    @NotBlank(message = "아이디를 입력하세요.")
     @Column(name ="userId")
     private String userId;
-    @NotBlank(message = "비밀번호를 입력하세요.")
     private String pw;
-    @NotBlank(message = "이름을 입력하세요.")
     private String name;
+
+    @Builder
+    public Member(String userId, String pw, String name){
+        this.userId = userId;
+        this.pw = pw;
+        this.name = name;
+    }
+
+    public void memberUpdate(String userId, String pw){
+        this.userId = userId;
+        this.pw = pw;
+    }
 }
