@@ -1,10 +1,8 @@
 package GDSC.Backend4th.domain.member;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import GDSC.Backend4th.domain.calander.Calander;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
@@ -19,6 +17,11 @@ public class Member {
     @GeneratedValue
     @Column(name = "MEMBER_ID")
     private Long id;
+
+
+    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name="CALANDER_ID")
+    private Calander calander;
 
     @Column(name ="userId")
     private String userId;

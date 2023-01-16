@@ -1,25 +1,36 @@
 package GDSC.Backend4th.service.member;
 
+import GDSC.Backend4th.Repository.CalanderRepository;
 import GDSC.Backend4th.Repository.MemberRepository;
+import GDSC.Backend4th.domain.calander.Calander;
+import GDSC.Backend4th.domain.calander.Daylander;
 import GDSC.Backend4th.domain.member.Member;
 import GDSC.Backend4th.dto.MemberDto;
+import GDSC.Backend4th.service.calander.CalanderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
 public class MemberService {
     private final MemberRepository memberRepository;
+    private final CalanderRepository calanderRepository;
+    private final CalanderService calanderService;
+
 
     @Transactional
     public Long join(MemberDto memberDto){
         Member member = memberDto.toEntity();
         validateDuplicateMember(member);
+
+        List<Daylander> daylanderList=new ArrayList<>();
+        Calander calander = new Calander(daylanderList);
+        member.setCalander(calander);
         memberRepository.save(member);
         return member.getId();
     }
