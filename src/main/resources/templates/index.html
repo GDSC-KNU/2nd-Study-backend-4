@@ -1,17 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>GDSC-Backend-4th</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        /* center align the buttons */
+        .btn {
+            display: inline-block;
+            margin: 10px;
+        }
+        h1{
+            margin-top:250px;
+        }
+    </style>
 </head>
 <body>
-<h1>I Can DO</h1>
-<button th:onclick="|location.href='@{/login}'|">
-    로그인
-</button>
-<button th:onclick="|location.href='@{/join}'|">
-    회원가입
-</button>
-
+<div class="container">
+    <h1 class="text-center">I Can Do</h1>
+    <div class="row">
+        <div class="col-md-6 offset-md-3 d-flex justify-content-center">
+            <button id="login-btn" class="btn btn-primary" th:onclick="|location.href='@{/login}'|">로그인</button>
+            <button id="signup-btn" class="btn btn-secondary" th:onclick="|location.href='@{/join}'|">회원가입</button>
+        </div>
+    </div>
+</div>
 </body>
 </html>
