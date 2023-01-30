@@ -8,6 +8,13 @@
 <div>
     <h1 th:text="|${memberDto.name}님의 To-do-list입니다.|"></h1>
     <div class="col">
+        <form th:action="@{/main}" method="get">
+            <button class="w-100 btn btn-dark btn-lg" type="submit">
+                달력보기
+            </button>
+        </form>
+    </div>
+    <div class="col">
         <form th:action="@{/logout}" method="post">
             <button class="w-100 btn btn-dark btn-lg" type="submit">
                 로그아웃
