@@ -1,5 +1,6 @@
 package GDSC.Backend4th.Repository;
 
+import GDSC.Backend4th.domain.calander.Calander;
 import GDSC.Backend4th.domain.member.Member;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
@@ -45,5 +46,18 @@ public class MemberRepository {
         return em.createQuery("select m from Member As m where m.userId = :userId", Member.class)
                 .setParameter("userId", userId)
                 .getResultList();
+    }
+
+    /**
+     * @param userId
+     * member로 calendar 찾기
+     * @return
+     */
+    public Calander findCalanderByMemberId(String userId){
+        List<Member> member = em.createQuery("select m from Member As m where m.userId = :userId", Member.class)
+                .setParameter("userId", userId)
+                .getResultList();
+        Calander calander = member.get(0).getCalander();
+        return calander;
     }
 }

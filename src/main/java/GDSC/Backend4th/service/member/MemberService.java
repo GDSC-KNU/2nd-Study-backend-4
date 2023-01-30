@@ -63,5 +63,14 @@ public class MemberService {
         return null;
     }
 
+    public Member findById(Long id){
+        Member member = memberRepository.findOne(id);
+        return member;
+    }
+    public Calander findCalanderByMemberId(String userId){
+        Calander byMember = memberRepository.findCalanderByMemberId(userId);
+
+        return byMember;
+    }
 
 }

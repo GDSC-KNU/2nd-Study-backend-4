@@ -16,8 +16,6 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class Calander {
-
-
     @Id
     @GeneratedValue
     @Column(name="CALANDER_ID")

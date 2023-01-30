@@ -38,7 +38,6 @@ public class CalanderService {
         }
     }
     public void register_day(Member member,Daylander daylander) {
-
         save_day(member,daylander);
     }
 
